@@ -34,6 +34,11 @@ $outputFolder = Join-Path $rootFolder "bin\$solutionName"
 # Clean
 if($clean) { MyGet-Build-Clean $rootFolder }
 
+# Download prerequisites 
+if(-not (Test-Path $rootFolder\external\cecil)) {
+    git submodule update --init --recursive
+}
+
 # Platforms to build for
 $platforms | ForEach-Object {
     $platform = $_
