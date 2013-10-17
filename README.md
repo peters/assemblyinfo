@@ -1,4 +1,4 @@
-[assemblyinfo]
+[assemblyinfo](https://www.nuget.org/packages/assemblyinfo/0.1.0)
 ============
 
 This small library uses Mono cecil to inspect MSIL code found in .NET assemblies
@@ -7,6 +7,12 @@ the assembly's dependencies.
 
 Right now the only supported feature is extracting which .NET framework
 an .NET assembly is targeting.
+
+Install via nuget
+---
+```
+Install-Package assemblyinfo
+```
 
 Usage
 -----
