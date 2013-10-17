@@ -41,16 +41,15 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\..\external\cecil\Mono.Cecil.csproj">
       <Project>{d68133bd-1e63-496e-9ede-4fbdbf77b486}</Project>
       <Name>Mono.Cecil</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <Import Project="..\..\packages\ILRepack.MSBuild.Task.1.0.9\build\ILRepack.MSBuild.Task.targets" Condition="Exists('..\..\packages\ILRepack.MSBuild.Task.1.0.9\build\ILRepack.MSBuild.Task.targets')" />
   <Target Name="AfterBuild" Condition="$(Configuration.EndsWith('Release'))">
     <ItemGroup>
       <InputAssemblies Include="$(OutputPath)\mono.cecil.dll" />
@@ -59,8 +58,8 @@
     <ItemGroup>
       <DoNotInternalizeAssemblies Include="$(OutputPath)\$(AssemblyName).dll" />
     </ItemGroup>
-    <ILRepack Parallel="true" Internalize="true" InputAssemblies="@(InputAssemblies)" InternalizeExclude="@(DoNotInternalizeAssemblies)" 
-              TargetKind="Dll" OutputFile="$(OutputPath)\$(AssemblyName).dll" />
+    <ILRepack Parallel="true" Internalize="true" InputAssemblies="@(InputAssemblies)" InternalizeExclude="@(DoNotInternalizeAssemblies)" TargetKind="Dll" OutputFile="$(OutputPath)\$(AssemblyName).dll" />
   </Target>
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Import Project="..\..\packages\ILRepack.MSBuild.Task.1.0.9\build\ILRepack.MSBuild.Task.targets" Condition="Exists('..\..\packages\ILRepack.MSBuild.Task.1.0.9\build\ILRepack.MSBuild.Task.targets')" />
 </Project>

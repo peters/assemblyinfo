@@ -9,9 +9,12 @@
     <projectUrl>https://github.com/peters/assemblyinfo</projectUrl>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
     <licenseUrl>https://raw.github.com/peters/assemblyinfo/develop/LICENSE</licenseUrl>
-    <description>Use mono cecil to read miscellaneous assembly information.</description>
-    <summary>Use mono cecil to read miscellaneous assembly information in a safe way without
-	invoking Assembly.Load.</summary>
+    <description>Inspect a .NET assembly (safely) using Mono.Cecil</description>
+    <summary>
+      This small library uses Mono cecil to inspect MSIL code found in .NET assemblies
+      without invoking `Assembly.Load` which enables you to avoid having to load
+      the assembly's dependencies.
+    </summary>
     <copyright>Peter Sunde</copyright>
     <tags>Mono Cecil Assembly</tags>
   </metadata>
