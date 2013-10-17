@@ -36,6 +36,7 @@ if($clean) { MyGet-Build-Clean $rootFolder }
 
 # Download prerequisites 
 if(-not (Test-Path $rootFolder\external\cecil\*)) {
+    . (MyGet-NugetExe-Path) restore $project -NonInteractive
     git submodule update --init --recursive
 }
 
