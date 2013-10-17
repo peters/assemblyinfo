@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>assemblyinfo</id>
+    <version>0.1.0</version>
+    <title>assemblyinfo</title>
+    <authors>Peter Sunde</authors>
+    <owners>petersunde</owners>
+    <projectUrl>https://github.com/peters/assemblyinfo</projectUrl>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <licenseUrl>https://raw.github.com/peters/assemblyinfo/develop/LICENSE</licenseUrl>
+    <description>Use mono cecil to read miscellaneous assembly information.</description>
+    <summary>Use mono cecil to read miscellaneous assembly information in a safe way without
+	invoking Assembly.Load.</summary>
+    <copyright>Peter Sunde</copyright>
+    <tags>Mono Cecil Assembly</tags>
+  </metadata>
+  <files>
+    <file src="$outputfolder$\net_2_0_Release\v2.0\assemblyinfo.dll" target="lib\net20" />
+    <file src="$outputfolder$\net_3_5_Release\v3.5\assemblyinfo.dll" target="lib\net35" />
+    <file src="$outputfolder$\net_4_0_Release\v4.0\assemblyinfo.dll" target="lib\net40" />
+    <file src="$outputfolder$\net_4_0_Release\v4.5\assemblyinfo.dll" target="lib\net45" />
+    <file src="$outputfolder$\net_4_0_Release\v4.5.1\assemblyinfo.dll" target="lib\net451" />
+  </files>
+</package>
