@@ -27,7 +27,7 @@ var targetFramework = AssemblyInfo.GetTargetFramework("myassembly_net20.dll");
 var targetFramework = AssemblyInfo.GetTargetFramework("myassembly_net40.dll");
 
 // 4.5
-var targetFramework = AssemblyInfo.GetTargetFramework("myassembly_net40.dll");
+var targetFramework = AssemblyInfo.GetTargetFramework("myassembly_net45.dll");
 
 // 4.5.1
 var targetFramework = AssemblyInfo.GetTargetFramework("myassembly_net451.dll");
