@@ -35,7 +35,7 @@ $outputFolder = Join-Path $rootFolder "bin\$solutionName"
 if($clean) { MyGet-Build-Clean $rootFolder }
 
 # Download prerequisites 
-if(-not (Test-Path $rootFolder\external\cecil)) {
+if(-not (Test-Path $rootFolder\external\cecil\*)) {
     git submodule update --init --recursive
 }
 
