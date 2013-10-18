@@ -1,12 +1,11 @@
 [assemblyinfo](https://www.nuget.org/packages/assemblyinfo/0.1.0)
 ============
 
-This small library uses Mono cecil to inspect MSIL code found in .NET assemblies
-without invoking `Assembly.Load` which enables you to avoid having to load
-the assembly's dependencies.
-
-Right now the only supported feature is extracting which .NET framework
-an .NET assembly is targeting.
+This small library uses [cecil](https://github.com/jbevain/cecil) to inspect MSIL code found in .NET assemblies
+instead of `Assembly.Load` which ensures that you do not have to load it's dependencies
+beforehand. This is particularly useful if you just want to know what .NET target framework an
+assembly is targeting without running the risk of catching an exception from `Assembly.Load`
+because of a missing dependency.
 
 Install via nuget
 ---
@@ -14,10 +13,10 @@ Install via nuget
 Install-Package assemblyinfo
 ```
 
-Usage
+Examples
 -----
 
-Overloads for `byte[]` and `Stream` is also available.
+Determine which framework a .NET assembly is targeting
 
 ```cs
 // 2.0
