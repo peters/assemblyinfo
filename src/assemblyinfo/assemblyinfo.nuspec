@@ -2,19 +2,21 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
   <metadata>
     <id>assemblyinfo</id>
-    <version>0.1.0</version>
+    <version>0.2.0</version>
     <title>assemblyinfo</title>
     <authors>Peter Sunde</authors>
     <owners>petersunde</owners>
     <projectUrl>https://github.com/peters/assemblyinfo</projectUrl>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
     <licenseUrl>https://raw.github.com/peters/assemblyinfo/develop/LICENSE</licenseUrl>
-    <description>Inspect a .NET assembly (safely) using Mono.Cecil</description>
-    <summary>
-      This small library uses Mono cecil to inspect MSIL code found in .NET assemblies
-      without invoking `Assembly.Load` which enables you to avoid having to load
-      the assembly's dependencies.
-    </summary>
+    <description>This small library uses cecil to inspect MSIL code found in .NET assemblies 
+    instead of `Assembly.Load` which ensures that you do not have to load it's dependencies beforehand. 
+    This is particularly useful if you just want to know what .NET target framework an assembly 
+    is targeting without running the risk of catching an exception from `Assembly.Load` because of a missing dependency.</description>
+    <summary>This small library uses cecil to inspect MSIL code found in .NET assemblies 
+    instead of `Assembly.Load` which ensures that you do not have to load it's dependencies beforehand. 
+    This is particularly useful if you just want to know what .NET target framework an assembly 
+    is targeting without running the risk of catching an exception from `Assembly.Load` because of a missing dependency.</summary>
     <copyright>Peter Sunde</copyright>
     <tags>Mono Cecil Assembly</tags>
   </metadata>
