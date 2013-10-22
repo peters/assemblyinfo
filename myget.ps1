@@ -59,7 +59,7 @@ $platforms | ForEach-Object {
             switch -Exact ($tf) {
                 v2.0 {
                     $config = "net_2_0_Release"
-                    $MSBuildProperties += '/p:DefineConstants="READ_ONLY"'
+                    $MSBuildProperties += '/p:DefineConstants="READ_ONLY;NET20"'
                 }
                 v3.5 {
                     $config = "net_3_5_Release"
