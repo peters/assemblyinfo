@@ -54,5 +54,10 @@ namespace assemblyinfo.Extensions
             return frameworks.All(currentFramework => currentFramework.IsLessThanOrEqualTo(framework));
         }
 
+        public static TargetFramework MinimumSupportedRuntime(this IEnumerable<TargetFramework> frameworks)
+        {
+            return (TargetFramework) frameworks.Max(x => (int) x);
+        }
+
     }
 }
