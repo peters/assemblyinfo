@@ -148,12 +148,12 @@
   <Import Project="..\..\packages\ILRepack.MSBuild.Task.1.0.9\build\ILRepack.MSBuild.Task.targets" Condition="Exists('..\..\packages\ILRepack.MSBuild.Task.1.0.9\build\ILRepack.MSBuild.Task.targets')" />
   <Target Name="AfterBuild" Condition="$(Configuration.EndsWith('Release'))">
     <ItemGroup>
-      <InputAssemblies Include="$(OutputPath)\mono.cecil.dll" />
       <InputAssemblies Include="$(OutputPath)\$(AssemblyName).dll" />
+      <InputAssemblies Include="$(OutputPath)\mono.cecil.dll" />
     </ItemGroup>
     <ItemGroup>
       <DoNotInternalizeAssemblies Include="$(OutputPath)\$(AssemblyName).dll" />
     </ItemGroup>
-    <ILRepack Parallel="true" KeyFile="$(ProjectDir)\assemblyinfo.snk" Internalize="false" InputAssemblies="@(InputAssemblies)" InternalizeExclude="@(DoNotInternalizeAssemblies)" TargetKind="Dll" OutputFile="$(OutputPath)\$(AssemblyName).dll" />
+    <ILRepack Parallel="true" KeyFile="$(ProjectDir)\assemblyinfo.snk" Internalize="true" InputAssemblies="@(InputAssemblies)" TargetKind="Dll" OutputFile="$(OutputPath)\$(AssemblyName).dll" />
   </Target>
 </Project>
