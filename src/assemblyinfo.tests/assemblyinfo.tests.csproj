@@ -119,7 +119,7 @@
     <SignAssembly>true</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyOriginatorKeyFile>assemblyinfo.pfx</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>assemblyinfo.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="nunit.framework">
@@ -134,7 +134,7 @@
     <Compile Include="TargetFrameworkExtensionsTest.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="assemblyinfo.pfx" />
+    <None Include="assemblyinfo.snk" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
