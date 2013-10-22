@@ -24,11 +24,11 @@ Install-Package assemblyinfo
 Supported frameworks
 ----
 
-NET 4.5.1
-NET 4.5
-NET 4.0
-NET 3.5
-NET 2.0
+* NET 4.5.1
+* NET 4.5
+* NET 4.0
+* NET 3.5
+* NET 2.0
 
 Examples
 -----
