@@ -7,6 +7,14 @@ beforehand. This is particularly useful if you just want to know what .NET targe
 assembly is targeting without running the risk of catching an exception from `Assembly.Load`
 because of a missing dependency.
 
+Powershell
+==========
+
+A powershell version is available [here](https://gist.github.com/peters/6991125). Please note that
+there's a limitation where you cannot differentiate between **NET45** and **NET451**. This is because the
+[Microsoft PE and COFF Specification](http://msdn.microsoft.com/en-us/windows/hardware/gg463119.aspx) does not
+reveal this information.
+
 Install via nuget
 ---
 ```
