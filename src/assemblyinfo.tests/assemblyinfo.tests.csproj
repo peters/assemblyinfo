@@ -115,6 +115,12 @@
     <TargetFrameworkIdentifier>Silverlight</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
   </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>assemblyinfo.pfx</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="nunit.framework">
       <HintPath>..\..\packages\NUnit.2.6.3\lib\nunit.framework.dll</HintPath>
@@ -128,13 +134,10 @@
     <Compile Include="TargetFrameworkExtensionsTest.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="assemblyinfo.pfx" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\external\cecil\Mono.Cecil.csproj">
-      <Project>{d68133bd-1e63-496e-9ede-4fbdbf77b486}</Project>
-      <Name>Mono.Cecil</Name>
-    </ProjectReference>
     <ProjectReference Include="..\assemblyinfo\assemblyinfo.csproj">
       <Project>{a72f49ac-1ac3-4ec4-b22e-cb717b890619}</Project>
       <Name>assemblyinfo</Name>
