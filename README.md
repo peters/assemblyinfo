@@ -21,24 +21,50 @@ Install via nuget
 Install-Package assemblyinfo
 ```
 
+Supported frameworks
+----
+
+NET 4.5.1
+NET 4.5
+NET 4.0
+NET 3.5
+NET 2.0
+
 Examples
 -----
 
-Determine which framework a .NET assembly is targeting
+Additional examples are available [here](https://github.com/peters/assemblyinfo/tree/develop/src/assemblyinfo.tests)
 
 ```cs
-// 2.0
-var targetFramework = AssemblyInfo.GetTargetFramework("myassembly_net20.dll");
+// Read from disk 
+AssemblyInfo.GetTargetFramework("myassembly.dll").IsEqualTo(TargetFramework.Net_2_0);
 
-// 4.0
-var targetFramework = AssemblyInfo.GetTargetFramework("myassembly_net40.dll");
+// Read from byte array
+AssemblyInfo.GetTargetFramework(File.ReadAllBytes("myassembly.dll")).IsEqualTo(TargetFramework.Net_2_0);
 
-// 4.5
-var targetFramework = AssemblyInfo.GetTargetFramework("myassembly_net45.dll");
+// Read from stream
+AssemblyInfo.GetTargetFramework(new MemoryStream(File.ReadAllBytes("myassembly.dll"))).IsEqualTo(TargetFramework.Net_2_0);
 
-// 4.5.1
-var targetFramework = AssemblyInfo.GetTargetFramework("myassembly_net451.dll");
+// Read from current assembly
+AssemblyInfo.GetTargetFramework(Assembly.GetExecutingAssembly()).IsEqualTo(TargetFramework.Net_2_0);
 
+// Determine minimum supported target framework
+AssemblyInfo.GetTargetFramework(new List<string> { 
+	"assembly1.dll",
+	"assembly2.dll"
+}).IsGreaterThan(TargetFramework.Net_2_0);
+
+// Determine minimum supported target framework
+AssemblyInfo.GetTargetFramework(new List<string> { 
+	"assembly1.dll",
+	"assembly2.dll"
+}).IsLessThanOrEqualTo(TargetFramework.Net_4_5_1);
+
+// Determine minimum supported target framework
+AssemblyInfo.GetTargetFramework(new List<byte[]> { 
+	File.ReadAllBytes("assembly1.dll"),
+	File.ReadAllBytes("assembly2.dll")
+}).IsGreaterThanOrEqualTo(TargetFramework.Net_4_5_1);
 ```
 
 License
