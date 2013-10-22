@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
 using assemblyinfo.Extensions;
 using NUnit.Framework;
 
@@ -8,7 +10,7 @@ namespace assemblyinfo.tests
     public class TargetFrameworkExtensionsTest
     {
 
-        private static List<TargetFramework> Frameworks = new List<TargetFramework>
+        private static readonly List<TargetFramework> Frameworks = new List<TargetFramework>
         {
             TargetFramework.Net_2_0,
             TargetFramework.Net_4_0,
@@ -79,12 +81,15 @@ namespace assemblyinfo.tests
             Assert.False(Frameworks.IsLessThanOrEqualTo(TargetFramework.Net_4_5));
             Assert.True(Frameworks.IsLessThanOrEqualTo(TargetFramework.Net_4_5_1));
 
-            Assert.True(new List<TargetFramework>
-            {
-                TargetFramework.Net_2_0, 
-                TargetFramework.Net_4_0,
-                TargetFramework.Net_4_5
-            }.IsLessThanOrEqualTo(TargetFramework.Net_4_5));
+            Assert.True(Frameworks.IsLessThanOrEqualTo(TargetFramework.Net_4_5));
+        }
+
+        [Test]
+        public void MinimumSupportedRuntime()
+        {
+            Assert.That(Frameworks.Take(2).MinimumSupportedRuntime(), Is.EqualTo(TargetFramework.Net_4_0));
+            Assert.That(Frameworks.Take(3).MinimumSupportedRuntime(), Is.EqualTo(TargetFramework.Net_4_5));
+            Assert.That(Frameworks.MinimumSupportedRuntime(), Is.EqualTo(TargetFramework.Net_4_5_1));
         }
 
     }

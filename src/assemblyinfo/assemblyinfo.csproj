@@ -120,7 +120,7 @@
     <SignAssembly>true</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyOriginatorKeyFile>assemblyinfo.pfx</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>assemblyinfo.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -140,7 +140,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="assemblyinfo.pfx" />
+    <None Include="assemblyinfo.snk" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
@@ -154,6 +154,6 @@
     <ItemGroup>
       <DoNotInternalizeAssemblies Include="$(OutputPath)\$(AssemblyName).dll" />
     </ItemGroup>
-    <ILRepack Parallel="true" Internalize="false" InputAssemblies="@(InputAssemblies)" InternalizeExclude="@(DoNotInternalizeAssemblies)" TargetKind="Dll" OutputFile="$(OutputPath)\$(AssemblyName).dll" />
+    <ILRepack Parallel="true" KeyFile="$(ProjectDir)\assemblyinfo.snk" Internalize="false" InputAssemblies="@(InputAssemblies)" InternalizeExclude="@(DoNotInternalizeAssemblies)" TargetKind="Dll" OutputFile="$(OutputPath)\$(AssemblyName).dll" />
   </Target>
 </Project>
