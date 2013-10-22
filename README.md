@@ -40,13 +40,19 @@ Additional examples are available [here](https://github.com/peters/assemblyinfo/
 AssemblyInfo.GetTargetFramework("myassembly.dll").IsEqualTo(TargetFramework.Net_2_0);
 
 // Read from byte array
-AssemblyInfo.GetTargetFramework(File.ReadAllBytes("myassembly.dll")).IsEqualTo(TargetFramework.Net_2_0);
+AssemblyInfo.GetTargetFramework(
+	File.ReadAllBytes("myassembly.dll")
+).IsEqualTo(TargetFramework.Net_2_0);
 
 // Read from stream
-AssemblyInfo.GetTargetFramework(new MemoryStream(File.ReadAllBytes("myassembly.dll"))).IsEqualTo(TargetFramework.Net_2_0);
+AssemblyInfo.GetTargetFramework(
+	new MemoryStream(File.ReadAllBytes("myassembly.dll"))
+).IsEqualTo(TargetFramework.Net_2_0);
 
 // Read from current assembly
-AssemblyInfo.GetTargetFramework(Assembly.GetExecutingAssembly()).IsEqualTo(TargetFramework.Net_2_0);
+AssemblyInfo.GetTargetFramework(
+	Assembly.GetExecutingAssembly()
+).IsEqualTo(TargetFramework.Net_2_0);
 
 // Determine minimum supported target framework
 AssemblyInfo.GetTargetFramework(new List<string> { 
